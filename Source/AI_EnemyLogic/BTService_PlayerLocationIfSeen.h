@@ -19,5 +19,6 @@ class AI_ENEMYLOGIC_API UBTService_PlayerLocationIfSeen : public UBTService_Blac
 public:
 	virtual void TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds) override;
 
+	//SETS THE LASTKNOWNPOSITION OF BT
 	void SetPlayerLastKnownLocation(UBehaviorTreeComponent& OwnerComp,APawn *Player);
 };

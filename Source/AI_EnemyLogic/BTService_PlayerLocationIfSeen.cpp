@@ -54,6 +54,8 @@ void UBTService_PlayerLocationIfSeen::TickNode(UBehaviorTreeComponent& OwnerComp
 		OwnerComp.GetBlackboardComponent()->SetValueAsFloat(TEXT("PlayerDistance"),DistanceToPlayer);
 		OwnerComp.GetBlackboardComponent()->SetValueAsVector(TEXT("CurrentPlayerLocation"),Player->GetActorLocation());
 
+
+		// CALLED HERE AND NOT IN ELSE BECAUSE THIS ONLY NEEDS TO BE UPDATED IF THE PLAYER LOST SIGHT OF ENEMY, NOT IN EVERY FRAME WHEN PLAYER IS NOT IN VIEW OF ENEMY
 		SetPlayerLastKnownLocation(OwnerComp,Player);
 	}
 	/*
@@ -64,7 +66,6 @@ void UBTService_PlayerLocationIfSeen::TickNode(UBehaviorTreeComponent& OwnerComp
 	 *	CLEAR CURRENT PLAYER LOCATION
 	 *	SET THE LAST KNOWN LOCATION TO START SEARCH BEHAVIOUR
 	 *	CHASE BEHAVIOUR IMPLEMENTED IN BTTASK 
-	 *	
 	 */
 	else
 	{

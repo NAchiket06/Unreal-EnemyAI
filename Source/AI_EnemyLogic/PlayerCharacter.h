@@ -56,6 +56,9 @@ public:
 	float isWalking = false;
 	
 	UPROPERTY(EditAnywhere)
-	FVector PatrolPoints[5];
+	FVector PatrolPoints[10];
+
+	UPROPERTY(EditAnywhere)
+	int PatrolPointLength;
 };
 

@@ -12,7 +12,14 @@ EBTNodeResult::Type UBTTask_IncrementPatrolIndex::ExecuteTask(UBehaviorTreeCompo
 	
 	int index = OwnerComp.GetBlackboardComponent()->GetValueAsInt("PatrolIndex");
 
-	index = (index + 1) % 5;
+	APlayerCharacter* playerRef = Cast<APlayerCharacter>(OwnerComp.GetAIOwner()->GetPawn());
+
+	if(playerRef == nullptr || playerRef->PatrolPointLength == 0)
+	{
+		UE_LOG(LogTemp,Warning,TEXT("player NUllptr or Vector length set to 0"));
+	}
+	
+	index = (index + 1) % playerRef->PatrolPointLength;
 
 	OwnerComp.GetBlackboardComponent()->SetValueAsInt("PatrolIndex", index);
 	

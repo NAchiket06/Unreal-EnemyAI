@@ -12,6 +12,7 @@ EBTNodeResult::Type UBTTask_AttackPlayer::ExecuteTask(UBehaviorTreeComponent& Ow
 {
 	Super::ExecuteTask(OwnerComp, NodeMemory);
 
+	// SHOOTING BEHAVIOUR
 	UE_LOG(LogTemp,Warning,TEXT("Hit Player"));
 
 	return  EBTNodeResult::Succeeded;

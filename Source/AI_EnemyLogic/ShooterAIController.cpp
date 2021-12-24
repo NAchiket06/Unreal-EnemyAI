@@ -16,12 +16,15 @@ void AShooterAIController::BeginPlay()
 	{
 		RunBehaviorTree(AIBehavior);
 
+		/*
 		// Player Is not in view of Enemy
 		if(LineOfSightTo(Player))
 		{
 			GetBlackboardComponent()->SetValueAsVector(TEXT("PlayerLocation"),Player->GetActorLocation());
 		}
 		GetBlackboardComponent()->SetValueAsVector(TEXT("StartLocation"),GetPawn()->GetActorLocation());
+		*/
+		
 	}
 }
 
