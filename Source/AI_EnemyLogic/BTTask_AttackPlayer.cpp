@@ -2,6 +2,7 @@
 
 
 #include "BTTask_AttackPlayer.h"
+#include "Kismet/GameplayStatics.h"
 
 UBTTask_AttackPlayer::UBTTask_AttackPlayer()
 {
@@ -14,7 +15,14 @@ EBTNodeResult::Type UBTTask_AttackPlayer::ExecuteTask(UBehaviorTreeComponent& Ow
 
 	// SHOOTING BEHAVIOUR
 	UE_LOG(LogTemp,Warning,TEXT("Hit Player"));
+	AActor* Player  = Cast<AActor>(UGameplayStatics::GetPlayerCharacter(this,0));
 
+	// FPointDamageEvent DamageEvent(10,)
+	// if(Player != nullptr)
+	// {
+	// 	Player->TakeDamage(10,FDamageEvent::DamageTypeClass)
+	// }
+	
 	return  EBTNodeResult::Succeeded;
 }
 
